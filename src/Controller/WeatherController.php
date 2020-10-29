@@ -48,6 +48,12 @@ class WeatherController extends AbstractController
         $weatherRespository = $this->getDoctrine()->getRepository(Weather::class);
         
         $allWeathers    = $weatherRespository->findAll();
+        
+        if (empty($allWeathers))
+        {
+            return $this->json([]);
+        }
+
         $maxTemp        = $weatherRespository->getMaxTemp();
         $minTemp        = $weatherRespository->getMinTemp();
         $avgTemp        = $weatherRespository->getAvgTemp();
