@@ -78,7 +78,7 @@ export default {
     axios.get('/api/weather/all')
             .then((response) => {
               
-              if (response.data.all.length > 0) {
+              if (response.data.all) {
                 this.max          = response.data.max.max_temp;
                 this.min          = response.data.min.min_temp;
                 this.avg          = response.data.avg;
