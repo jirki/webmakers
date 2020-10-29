@@ -1,0 +1,16 @@
+index:
+   path: /
+   controller: App\Controller\HomeController::index
+
+weather_get_from_cords:
+   path: api/weather/lat/{lat}/lng/{lng}
+   controller: App\Controller\WeatherController::getWeatherFromCords
+   methods: GET|POST
+
+weather_all:
+   path: /api/weather/all
+   controller: App\Controller\WeatherController::getAll
+
+history:
+   path: /history
+   controller: App\Controller\HistoryController::index
