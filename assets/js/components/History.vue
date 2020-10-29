@@ -77,14 +77,15 @@ export default {
   mounted() {
     axios.get('/api/weather/all')
             .then((response) => {
-              if (response.data.length > 0) {
+              
+              if (response.data.all.length > 0) {
                 this.max          = response.data.max.max_temp;
                 this.min          = response.data.min.min_temp;
                 this.avg          = response.data.avg;
                 this.data         = response.data.all;
                 this.allResults   = response.data.count.count;
                 this.popularCity  = response.data.popular.name;
-                this.dataShow     = response.data.all.slice(this.currentPage, this.pageSize);
+                this.dataShow     = response.data.all.slice(this.currentPage-1, this.pageSize);
               }
               
               this.showLoader   = false;
